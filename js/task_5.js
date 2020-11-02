@@ -1,11 +1,24 @@
 // Напиши функцию getAllPropValues(arr, prop), которая получает массив объектов и имя свойства.
 // Возвращает массив значений определенного свойства prop из каждого объекта в массиве.
+// Используй метод push для добавления значения в массив и оператор in для проверки наличия свойства в объекте.
 
 function getAllPropValues(array, prop) {
   "use strict";
-  console.log("Товар", array);
+  // console.log("Товар", array);
+  const arrayOfValues = [];
 
-  // Write code under this line
+  for (const obj of array) {
+    // console.log(obj);
+
+    if (prop in obj) {
+      // console.log(`Свойство c ключом ${prop} есть. Значение найдено`);
+      arrayOfValues.push(obj[prop]);
+    } else {
+      // console.log(`Свойство с ключом ${prop} не найдено.`);
+    }
+    // Write code under this line
+  }
+  return arrayOfValues;
 }
 
 // Объекты и ожидаемый результат
@@ -19,11 +32,11 @@ const products = [
   { name: "Захват", price: 1200, quantity: 2 },
 ];
 
-//console.log(getAllPropValues(products, 'name'));
+console.log(getAllPropValues(products, "name"));
 // ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
 
-//console.log(getAllPropValues(products, 'quantity'));
+console.log(getAllPropValues(products, "quantity"));
 // [4, 2, 1, 1, 3, 7, 2]
 
-//console.log(getAllPropValues(products, 'category'));
-//  []
+console.log(getAllPropValues(products, "category"));
+//  [];
